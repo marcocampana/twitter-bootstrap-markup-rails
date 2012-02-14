@@ -9,5 +9,18 @@ module Twitter::Bootstrap::Markup::Rails::Components
       input_html = super(method, options)
       Form::InputField.new(object_name, method, input_html, options).to_s
     end
+
+    def radio_button(method, tag_value, options={})
+      element_html = super(method, tag_value, options)
+      Form::RadioButton.new(object_name, method, tag_value, element_html, options).to_s
+    end
+
+    def button(value, options={})
+      Form::Button.new(object_name, value, options).to_s
+    end
+
+    def control_group(method, options, &block)
+      Form::ControlGroup.new(object_name, method, options, block).to_s
+    end
   end
 end
