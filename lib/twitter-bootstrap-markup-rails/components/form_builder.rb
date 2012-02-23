@@ -1,5 +1,6 @@
 module Twitter::Bootstrap::Markup::Rails::Components
   class FormBuilder < ActionView::Helpers::FormBuilder
+
     def text_field(method, options={})
       input_html = super(method, options)
       Form::InputField.new(object_name, method, input_html, options).to_s
@@ -17,10 +18,6 @@ module Twitter::Bootstrap::Markup::Rails::Components
 
     def button(value, options={})
       Form::Button.new(object_name, value, options).to_s
-    end
-
-    def control_group(method, options, &block)
-      Form::ControlGroup.new(object_name, method, options, block).to_s
     end
   end
 end
