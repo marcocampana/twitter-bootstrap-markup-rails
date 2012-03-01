@@ -26,6 +26,11 @@ module Twitter::Bootstrap::Markup::Rails::Components
       Form::Select.new(object_name, method, element_html, options).to_s
     end
 
+    def check_box(method, options={})
+      element_html = super(method, options)
+      Form::CheckBox.new(object_name, method, element_html, options).to_s
+    end
+
     def button(value, options={})
       Form::Button.new(object_name, value, options).to_s
     end

@@ -5,6 +5,7 @@ module Twitter::Bootstrap::Markup::Rails::Components
     autoload :Label,        'twitter-bootstrap-markup-rails/components/form/label'
     autoload :RadioButton,  'twitter-bootstrap-markup-rails/components/form/radio_button'
     autoload :Select,       'twitter-bootstrap-markup-rails/components/form/select'
+    autoload :CheckBox,     'twitter-bootstrap-markup-rails/components/form/check_box'
     autoload :Button,       'twitter-bootstrap-markup-rails/components/form/button'
     autoload :ControlGroup, 'twitter-bootstrap-markup-rails/components/form/control_group'
 
