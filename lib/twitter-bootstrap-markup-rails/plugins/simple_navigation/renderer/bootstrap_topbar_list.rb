@@ -43,7 +43,11 @@ class SimpleNavigation::Renderer::BootstrapTopbarList < SimpleNavigation::Render
     if item.url.nil?
       content_tag('span', item.name, link_options_for(item).except(:method))
     else
-      link_to(item.name, item.url, link_options_for(item))
+      icons = options[:icons]
+      icon_class = icons[item.key]
+      icon = ""
+      icon = "<i class=\"#{icon_class}\"></i>" if icon_class
+      link_to(icon + item.name, item.url, link_options_for(item))
     end
   end
 
