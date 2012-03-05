@@ -9,7 +9,7 @@ module Twitter::Bootstrap::Markup::Rails::Components
     end
 
     def to_s
-      output_buffer << content_tag(:button, :type=>:submit, :class => options[:class]) do
+      output_buffer << content_tag(:button, {:type => :submit}.merge(options)) do
         html = ''
         html << content_tag(:i, '', :class => options[:icon])
         html << value
