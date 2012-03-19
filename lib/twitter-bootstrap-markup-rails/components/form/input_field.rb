@@ -12,11 +12,17 @@ module Twitter::Bootstrap::Markup::Rails::Components
         html = ''
         html << label_html.to_s
         html << content_tag(:div, :class => 'controls') do
-          build_input_wrapper
+          field_html = build_input_wrapper
+          field_html << help_block(options[:help_block]) unless options[:help_block].blank?
+          field_html.html_safe
         end
         html.html_safe
       end
       super
+    end
+
+    def help_block(message)
+      content_tag :p, message, :class => 'help-block'
     end
 
   end
