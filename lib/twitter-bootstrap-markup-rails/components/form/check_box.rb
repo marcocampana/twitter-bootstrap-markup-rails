@@ -7,7 +7,10 @@ module Twitter::Bootstrap::Markup::Rails::Components
     end
 
     def to_s
-      output_buffer << content_tag(:label, :class => "checkbox #{options[:class]}") do
+      @element_html =~ /id="([^"]+)"/
+      tag_id = $1
+      css_class = options[:class].blank? ? "checkbox" : "checkbox #{options[:class]}"
+      output_buffer << content_tag(:label, :class => css_class, :for => tag_id) do
         html = ''
         html << element_html
         html << options[:label]
