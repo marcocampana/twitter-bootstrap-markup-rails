@@ -42,5 +42,9 @@ module Twitter::Bootstrap::Markup::Rails::Components
       end
     end
 
+    def help_block(message)
+      content_tag :p, message.html_safe, :class => 'help-block'
+    end
+
   end
 end

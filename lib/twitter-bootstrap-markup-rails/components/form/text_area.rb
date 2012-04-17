@@ -20,10 +20,5 @@ module Twitter::Bootstrap::Markup::Rails::Components
       end
       super
     end
-
-    def help_block(message)
-      content_tag :p, message, :class => 'help-block'
-    end
-
   end
 end
