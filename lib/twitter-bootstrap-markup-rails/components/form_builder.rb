@@ -7,7 +7,7 @@ module Twitter::Bootstrap::Markup::Rails::Components
     end
 
     def text_area(method, options={})
-      input_html = super(method, options)
+      input_html = super(method, options.except(:label_text))
       Form::TextArea.new(object_name, method, input_html, options).to_s
     end
 
