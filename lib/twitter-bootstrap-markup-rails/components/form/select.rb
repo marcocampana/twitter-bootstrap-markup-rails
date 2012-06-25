@@ -12,12 +12,13 @@ module Twitter::Bootstrap::Markup::Rails::Components
         html = ''
         html << label_html.to_s
         html << content_tag(:div, :class => 'controls') do
-          element_html
+          field_html = element_html
+          field_html << help_block(options[:help_block]) unless options[:help_block].blank?
+          field_html.html_safe
         end
         html.html_safe
       end
       super
     end
-
   end
 end
