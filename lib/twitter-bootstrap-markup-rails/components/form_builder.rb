@@ -21,8 +21,8 @@ module Twitter::Bootstrap::Markup::Rails::Components
       Form::RadioButton.new(object_name, method, tag_value, element_html, options).to_s
     end
 
-    def select(method, choices, options={})
-      element_html = super(method, choices, options)
+    def select(method, choices, options={}, html_options={})
+      element_html = super(method, choices, options, html_options)
       Form::Select.new(object_name, method, element_html, options).to_s
     end
 
