@@ -17,7 +17,9 @@ module Twitter::Bootstrap::Markup::Rails::Components
     end
 
     def radio_button(method, tag_value, options={})
-      element_html = super(method, tag_value, options)
+      # TODO As is all of the options passed in end up as tags in the output
+      # html. We should probably fix this.
+      element_html = super(method, tag_value, options.except(:label))
       Form::RadioButton.new(object_name, method, tag_value, element_html, options).to_s
     end
 
