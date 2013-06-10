@@ -8,15 +8,21 @@ module Twitter::Bootstrap::Markup::Rails::Components
     end
 
     def to_s
-      output_buffer << content_tag(:div, :class => 'control-group') do
-        html = ''
-        html << label_html.to_s
-        html << content_tag(:div, :class => 'controls') do
-          field_html = element_html
-          field_html << help_block(options[:help_block]) unless options[:help_block].blank?
-          field_html.html_safe
+      field_html = build_input_wrapper
+      field_html << help_block(options[:help_block]) unless options[:help_block].blank?
+      field_html.html_safe
+
+      if options[:decorated].nil? || options[:decorated] != false
+        output_buffer << content_tag(:div, :class => 'control-group') do
+          html = ''
+          html << label_html.to_s
+          html << content_tag(:div, :class => 'controls') do
+            field_html
+          end
+          html.html_safe
         end
-        html.html_safe
+      else
+        output_buffer << field_html
       end
       super
     end
