@@ -6,6 +6,11 @@ module Twitter::Bootstrap::Markup::Rails::Components
       Form::InputField.new(object_name, method, input_html, options).to_s
     end
 
+    def number_field(method, options={})
+      input_html = super(method, options.except(:label, :label_text))
+      Form::NumberField.new(object_name, method, input_html, options).to_s
+    end
+
     def text_area(method, options={})
       input_html = super(method, options.except(:label, :label_text))
       Form::TextArea.new(object_name, method, input_html, options).to_s
