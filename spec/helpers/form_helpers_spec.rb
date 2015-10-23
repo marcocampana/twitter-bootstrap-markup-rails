@@ -30,6 +30,7 @@ describe Twitter::Bootstrap::Markup::Rails::Helpers::FormHelpers do
           div.should have_tag('label.control-label')
           div.should have_tag('div.controls') do |div|
             div.should have_tag('input')
+            div.should_not have_tag('input[label]')
           end
         end
       end
@@ -43,6 +44,7 @@ describe Twitter::Bootstrap::Markup::Rails::Helpers::FormHelpers do
           div.should have_tag('label.control-label', :text => 'a custom label')
           div.should have_tag('div.controls') do |div|
             div.should have_tag('input')
+            div.should_not have_tag('input[label_text]')
           end
         end
       end
